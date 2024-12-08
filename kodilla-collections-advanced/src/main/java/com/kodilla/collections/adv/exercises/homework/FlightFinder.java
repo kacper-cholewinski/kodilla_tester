@@ -12,24 +12,32 @@ public class FlightFinder {
     }
 
     public List<Flight> findFlightsFrom(String departure) {
-        List<Flight> flightsFrom = new ArrayList<>();
+//        List<Flight> flightsFrom = new ArrayList<>();
+//
+//        for (Flight flight : flightsTable) {
+//            if (flight.departure().equals(departure)) {
+//               flightsFrom.add(flight);
+//            }
+//        }
+//        return flightsFrom;
 
-        for (Flight flight : flightsTable) {
-            if (flight.departure() == departure) {
-               flightsFrom.add(flight);
-            }
-        }
-        return flightsFrom;
+        return flightsTable.stream()
+            .filter((flight) -> flight.departure().equals(departure))
+            .toList();
     }
 
     public List<Flight> findFlightsTo(String arrival) {
-        List<Flight> flightsTo = new ArrayList<>();
+//        List<Flight> flightsTo = new ArrayList<>();
+//
+//        for (Flight flight : flightsTable) {
+//            if (flight.arrival().equals(arrival)) {
+//                flightsTo.add(flight);
+//            }
+//        }
+//        return flightsTo;
 
-        for (Flight flight : flightsTable) {
-            if (flight.arrival() == arrival) {
-                flightsTo.add(flight);
-            }
-        }
-        return flightsTo;
+        return flightsTable.stream()
+            .filter((flight) -> flight.arrival().equals(arrival))
+            .toList();
     }
 }
