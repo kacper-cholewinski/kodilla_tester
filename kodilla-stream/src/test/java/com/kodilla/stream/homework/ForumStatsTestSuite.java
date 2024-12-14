@@ -20,6 +20,9 @@ public class ForumStatsTestSuite {
         ));
 
         assertEquals(50., ForumStats.getAverageNumberOfPostsForOldUsers(users), 0.001);
+
+        List<User> emptyUsers = new ArrayList<>();
+        assertEquals(-1, ForumStats.getAverageNumberOfPostsForOldUsers(emptyUsers), 0.001);
     }
 
     @Test
@@ -32,5 +35,8 @@ public class ForumStatsTestSuite {
         ));
 
         assertEquals(300., ForumStats.getAverageNumberOfPostsForYoungUsers(users), 0.001);
+
+        List<User> emptyUsers = new ArrayList<>();
+        assertEquals(-1, ForumStats.getAverageNumberOfPostsForYoungUsers(emptyUsers), 0.001);
     }
 }
