@@ -6,6 +6,13 @@ import java.util.List;
 import java.util.Optional;
 
 public class Application {
+    public static String generateStudentDescription(Student student) {
+        return "student: "
+            + student.getName()
+            + " - teacher: "
+            + Optional.ofNullable(student.getTeacher()).orElse(new Teacher("<undefined>")).getName();
+    }
+
     public static void main(String[] args) {
         List<Student> students = new ArrayList<>(Arrays.asList(
             new Student("Scout Duke", new Teacher("Martha Nguyen")),
@@ -14,12 +21,7 @@ public class Application {
         ));
 
         for (Student student : students) {
-            System.out.println(
-                "student: "
-                    + student.getName()
-                    + " - teacher: "
-                    + Optional.ofNullable(student.getTeacher()).orElse(new Teacher("<undefined>")).getName()
-            );
+            System.out.println(generateStudentDescription(student));
         }
     }
 }
