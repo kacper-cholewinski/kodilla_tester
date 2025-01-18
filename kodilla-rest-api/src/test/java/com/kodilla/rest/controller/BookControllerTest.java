@@ -33,7 +33,8 @@ class BookControllerTest {
     public void testAddBook() {
         BookService bookServiceMock = Mockito.mock(BookService.class);
         BookController bookController = new BookController(bookServiceMock);
-        bookController.addBook(new BookDto("Title 1", "Author 1"));
-        Mockito.verify(bookServiceMock).addBook(new BookDto("Title 1", "Author 1"));
+        BookDto book = new BookDto("Title 1", "Author 1");
+        bookController.addBook(book);
+        Mockito.verify(bookServiceMock).addBook(book);
     }
 }
