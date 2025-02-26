@@ -15,6 +15,7 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation group: 'com.mysql', name: 'mysql-connector-j', version: '9.2.0'
 }
 
 test {
